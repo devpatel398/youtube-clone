@@ -1,6 +1,10 @@
 {
-  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.defaultFormatter": null,
   "editor.dragAndDrop": true,
   "editor.dropIntoEditor.enabled": true,
-  "explorer.enableDragAndDrop": true
+  "explorer.enableDragAndDrop": true,
+  "editor.formatOnSave": true,
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "vscode.typescript-language-features"
+  }
 }
