@@ -1,4 +1,5 @@
 import { Sidebar, SidebarContent } from "@/components/ui/sidebar";
+import { MainSection } from "./main-section";
 
 
 export const HomeSidebar = () => {
