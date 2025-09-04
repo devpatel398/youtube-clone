@@ -1,4 +1,4 @@
-"use-client";
+"use client";
 
 import { SidebarGroup, SidebarGroupContent, SidebarGroupLabel, SidebarMenu, SidebarMenuButton, SidebarMenuItem } from "@/components/ui/sidebar";
 import { HistoryIcon, ListVideoIcon, ThumbsUpIcon } from "lucide-react";
@@ -37,7 +37,7 @@ export const PersonalSection = () => {
                                 tooltip={item.title}
                                 asChild
                                 isActive={false}    //TODO: chagne to look at current pathname
-                                onClick={null}      //TODO: Do something on click
+                                onClick={() => { }}      //TODO: Do something on click
                             >
                                 <Link href={item.url}>
                                     <item.icon></item.icon>
@@ -48,6 +48,6 @@ export const PersonalSection = () => {
                     ))}
                 </SidebarMenu>
             </SidebarGroupContent>
-        </SidebarGroup>
+        </SidebarGroup >
     );
 }
