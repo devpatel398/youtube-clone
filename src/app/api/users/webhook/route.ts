@@ -26,8 +26,8 @@ export async function POST(req: Request) {
         return new Response('Error: Missing Svix headers', {
             status: 400,
         })
-    }
-
+    } 
+ 
     // Get body
     const payload = await req.json()
     const body = JSON.stringify(payload)
@@ -43,7 +43,7 @@ export async function POST(req: Request) {
         }) as WebhookEvent
     } catch (err) {
         console.error('Error: Could not verify webhook', err)
-        return new Response('Error: Verification error', {
+        return new Response('Error: Verification error', { 
             status: 400,
         })
     }

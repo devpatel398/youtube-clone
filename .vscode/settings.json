@@ -4,7 +4,10 @@
   "editor.dropIntoEditor.enabled": true,
   "explorer.enableDragAndDrop": true,
   "editor.formatOnSave": true,
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "typescript.enablePromptUseWorkspaceTsdk": true,
   "[typescriptreact]": {
     "editor.defaultFormatter": "vscode.typescript-language-features"
   }
+  
 }
