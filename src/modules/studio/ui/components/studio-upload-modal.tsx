@@ -2,7 +2,6 @@
 
 import { Button } from "@/components/ui/button";
 import { trpc } from "@/trpc/client";
-import { error } from "console";
 import { Loader2Icon, PlusIcon } from "lucide-react";
 import { toast } from "sonner";
 
