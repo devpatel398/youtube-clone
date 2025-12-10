@@ -72,7 +72,6 @@ const VideosSectionSuspense = () => {
                     </TableBody>
                 </Table>
             </div>
-            Videos section
             <InfiniteScroll
                 isManual
                 hasNextPage={query.hasNextPage}
