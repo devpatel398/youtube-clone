@@ -13,6 +13,16 @@ export const videosRouter = createTRPCRouter({
                 playback_policy: ["public"],
                 // use the line before if credit card added to MUX account
                 //mp4_support: "standard",
+                input: [
+                    {
+                        generated_subtitles: [
+                            {
+                                language_code: "en",
+                                name: "English",
+                            }
+                        ]
+                    }
+                ]
             },
             cors_origin: "*", // TODO: In production, set to your url
         });
