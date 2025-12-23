@@ -285,7 +285,6 @@ const FormSectionSuspense = ({ videoId }: FromSectionProps) => {
                                     <FormItem>
                                         <FormLabel>
                                             Category
-                                            {/** TODO: Add Ai generated button */}
                                         </FormLabel>
                                         <Select onValueChange={field.onChange} defaultValue={field.value ?? undefined}>
                                             <FormControl>
