@@ -13,12 +13,18 @@ import { Form, FormControl, FormField, FormItem, FormMessage } from "@/component
 
 interface CommentFormProps {
     videoId: string;
+    parentId?: string;
     onSuccess?: () => void;
+    onCancel?: () => void;
+    variant?: "comment" | "reply";
 }
 
 export const CommentForm = ({
     videoId,
+    parentId,
     onSuccess,
+    onCancel,
+    variant = "comment",
 }: CommentFormProps) => {
     const clerk = useClerk();
     const { user } = useUser();
@@ -27,6 +33,7 @@ export const CommentForm = ({
     const create = trpc.comments.create.useMutation({
         onSuccess: () => {
             utils.comments.getMany.invalidate({ videoId });
+            utils.comments.getMany.invalidate({ videoId, parentId });
             form.reset();
             toast.success("Comment added");
             onSuccess?.();
@@ -44,13 +51,19 @@ export const CommentForm = ({
         // @ts-ignore
         resolver: zodResolver(commentInsertSchema.omit({ userId: true })), // works but gives red underline, added // @ts-ignore -> Time 3:01:20 in part 2
         defaultValues: {
-            videoId,
+            parentId: parentId,
+            videoId: videoId,
             value: "",
         },
     });
 
     const handleSubmit = (values: z.infer<typeof commentInsertSchema>) => {
         create.mutate(values);
+    };
+
+    const handleCancel = () => {
+        form.reset();
+        onCancel?.();
     };
 
     return (
@@ -75,7 +88,11 @@ export const CommentForm = ({
                                 <FormControl>
                                     <Textarea
                                         {...field}
-                                        placeholder="Add a comment..."
+                                        placeholder={
+                                            variant === "reply"
+                                                ? "Reply to this comment..."
+                                                : "Add a comment..."
+                                        }
                                         className="resize-none bg-transparent overflow-hidden min-h-0"
                                     />
                                 </FormControl>
@@ -84,12 +101,17 @@ export const CommentForm = ({
                         )}
                     />
                     <div className="justify-end gap-2 mt-2 flex">
+                        {onCancel && (
+                            <Button variant={"ghost"} type="button" onClick={handleCancel}>
+                                Cancel
+                            </Button>
+                        )}
                         <Button
                             disabled={create.isPending}
                             type="submit"
                             size="sm"
                         >
-                            Comment
+                            {variant === "reply" ? "Reply" : "Comment"}
                         </Button>
                     </div>
                 </div>
