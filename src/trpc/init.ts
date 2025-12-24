@@ -10,7 +10,7 @@ import { ratelimit } from '@/lib/ratelimit';
 export const createTRPCContext = cache(async () => {
   const { userId }= await auth();
 
-  return { clerkUserID: userId };
+  return { clerkUserId: userId };
 });
 
 export type Context = Awaited<ReturnType<typeof createTRPCContext>>;
@@ -31,14 +31,14 @@ export const baseProcedure = t.procedure;
 export const protectedProcedure = t.procedure.use(async function isAuthed(opts) {
   const {ctx} = opts;
   
-  if (!ctx.clerkUserID) {
+  if (!ctx.clerkUserId) {
     throw new TRPCError({code: "UNAUTHORIZED"});
   }
 
   const [user] = await db
     .select()
     .from(users)
-    .where(eq(users.clerkId, ctx.clerkUserID))
+    .where(eq(users.clerkId, ctx.clerkUserId))
     .limit(1);
 
   if (!user) {

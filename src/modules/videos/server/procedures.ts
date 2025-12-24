@@ -12,7 +12,7 @@ export const videosRouter = createTRPCRouter({
     getOne: baseProcedure
         .input(z.object({ id: z.uuid() }))
         .query(async ({ input, ctx }) => {
-            const { clerkUserID: clerkUserId } = ctx;
+            const { clerkUserId } = ctx;
 
             let userId;
 

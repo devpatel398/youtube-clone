@@ -13,7 +13,7 @@ interface VideoOwnerProps {
 }
 
 export const VideoOwner = ({ user, videoId }: VideoOwnerProps) => {
-    const { userId: clerkUserID, isLoaded } = useAuth();
+    const { userId: clerkUserId, isLoaded } = useAuth();
     const { isPending, onClick } = useSubscription({
         userId: user.id,
         isSubscribed: user.viewerSubscribed,
@@ -35,7 +35,7 @@ export const VideoOwner = ({ user, videoId }: VideoOwnerProps) => {
             </Link>
 
             {/** Checks if you are user that owns the video and display "edit" button otherwise display "sub" button */}
-            {clerkUserID === user.clerkId ? (
+            {clerkUserId === user.clerkId ? (
                 <Button
                     variant={"secondary"}
                     className="rounded-full"
