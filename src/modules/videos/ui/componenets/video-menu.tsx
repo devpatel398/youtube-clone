@@ -12,7 +12,7 @@ interface VideoMenuProps {
 // TODO: implement whats left
 export const VideoMenu = ({
     videoId,
-    variant,
+    variant = "ghost",
     onRemove,
 }: VideoMenuProps) => {
     const onShare = () => {
