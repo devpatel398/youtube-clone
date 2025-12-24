@@ -25,6 +25,7 @@ import Image from "next/image";
 import { THUMBNAIL_FALLBACK } from "@/modules/videos/constants";
 import { ThumbnailUploadModal } from "../components/thumbnail-upload-modal";
 import { ThumbnailGenerateModal } from "../components/thumbnail-generate-modal";
+import { APP_URL } from "@/constants";
 
 
 interface FromSectionProps {
@@ -77,6 +78,17 @@ const FormSectionSuspense = ({ videoId }: FromSectionProps) => {
         },
     });
 
+    const revalidate = trpc.videos.revalidate.useMutation({
+        onSuccess: () => {
+            utils.studio.getMany.invalidate();
+            utils.studio.getOne.invalidate({ id: videoId });
+            toast.success("Video revalidated");
+        },
+        onError: () => {
+            toast.error("something went wrong");
+        },
+    });
+
     const generateTitle = trpc.videos.generateTitle.useMutation({
         onSuccess: () => {
             toast.success("Background job started", { description: "This may take some time" });
@@ -116,7 +128,7 @@ const FormSectionSuspense = ({ videoId }: FromSectionProps) => {
     };
 
     // TODO: Change if deploying outside of VERCEL
-    const fullUrl = `${process.env.VERCEL_URL || "http://localhost:3000"}/videos/${videoId}`;
+    const fullUrl = `${APP_URL || "http://localhost:3000"}/videos/${videoId}`;
     const [isCopied, setIsCopied] = useState(false);
 
     const onCopy = async () => {
@@ -159,6 +171,10 @@ const FormSectionSuspense = ({ videoId }: FromSectionProps) => {
                                     </Button>
                                 </DropdownMenuTrigger>
                                 <DropdownMenuContent align="end">
+                                    <DropdownMenuItem onClick={() => revalidate.mutate({ id: videoId })}>
+                                        <RotateCcwIcon className="size-4 mr-2" />
+                                        Revalidate
+                                    </DropdownMenuItem>
                                     <DropdownMenuItem onClick={() => remove.mutate({ id: videoId })}>
                                         <TrashIcon className="size-4 mr-2" />
                                         Delete
