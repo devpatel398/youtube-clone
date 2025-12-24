@@ -210,7 +210,8 @@ export const videosRouter = createTRPCRouter({
                     title: input.title,
                     description: input.description,
                     categoryId: input.categoryId,
-                    //visibility: input.visibility, //not sure whats wrong here. 8:51:00 video time stamp
+                    // @ts-ignore
+                    visibility: input.visibility, //not sure whats wrong here. 8:51:00 video time stamp
                     updatedAT: new Date(),
                 })
                 .where(and(

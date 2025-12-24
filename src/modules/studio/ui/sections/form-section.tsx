@@ -374,7 +374,8 @@ const FormSectionSuspense = ({ videoId }: FromSectionProps) => {
                                         </FormLabel>
                                         <Select
                                             onValueChange={field.onChange}
-                                        //defaultValue={field.value ?? undefined}
+                                            // @ts-ignore
+                                            defaultValue={field.value ?? undefined}
                                         >
                                             <FormControl>
                                                 <SelectTrigger>
