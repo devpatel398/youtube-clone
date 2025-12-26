@@ -42,14 +42,14 @@ export const searchRouter = createTRPCRouter({
                 categoryId ? eq(videos.categoryId, categoryId) : undefined,
                 cursor
                     ? or (
-                        lt(videos.updatedAT, cursor.updatedAt),
+                        lt(videos.updatedAt, cursor.updatedAt),
                             and(
-                                eq(videos.updatedAT, cursor.updatedAt),
+                                eq(videos.updatedAt, cursor.updatedAt),
                                 lt(videos.id, cursor.id)
                             )
                         )
                     : undefined,
-            )).orderBy(desc(videos.updatedAT), desc(videos.id))
+            )).orderBy(desc(videos.updatedAt), desc(videos.id))
             // Add 1 to the limit to check if there is more data
             .limit(limit + 1)
 
@@ -61,7 +61,7 @@ export const searchRouter = createTRPCRouter({
         const nextCursor = hasMore ? 
             {
                 id: lastItem.id,
-                updatedAt: lastItem.updatedAT,
+                updatedAt: lastItem.updatedAt,
             }
             : null;
 

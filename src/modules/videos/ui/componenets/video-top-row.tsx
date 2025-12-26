@@ -45,11 +45,11 @@ export const VideoTopRow = ({ video }: VideoTopRowProps) => {
     }, [video.viewCount]);
 
     const compactDate = useMemo(() => {
-        return formatDistanceToNow(video.createAT, { addSuffix: true });
-    }, [video.createAT]);
+        return formatDistanceToNow(video.createdAt, { addSuffix: true });
+    }, [video.createdAt]);
     const expandedDate = useMemo(() => {
-        return format(video.createAT, "d MMM yyyy");
-    }, [video.createAT]);
+        return format(video.createdAt, "d MMM yyyy");
+    }, [video.createdAt]);
 
     return (
         <div className="flex flex-col gap-4 mt-4">

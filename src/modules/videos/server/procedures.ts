@@ -57,14 +57,14 @@ export const videosRouter = createTRPCRouter({
                     eq(videos.visibility, "public"),
                     cursor
                         ? or (
-                            lt(videos.updatedAT, cursor.updatedAt),
+                            lt(videos.updatedAt, cursor.updatedAt),
                                 and(
-                                    eq(videos.updatedAT, cursor.updatedAt),
+                                    eq(videos.updatedAt, cursor.updatedAt),
                                     lt(videos.id, cursor.id)
                                 )
                             )
                         : undefined,
-                )).orderBy(desc(videos.updatedAT), desc(videos.id))
+                )).orderBy(desc(videos.updatedAt), desc(videos.id))
                 // Add 1 to the limit to check if there is more data
                 .limit(limit + 1)
     
@@ -76,7 +76,7 @@ export const videosRouter = createTRPCRouter({
             const nextCursor = hasMore ? 
                 {
                     id: lastItem.id,
-                    updatedAt: lastItem.updatedAT,
+                    updatedAt: lastItem.updatedAt,
                 }
                 : null;
     
@@ -188,14 +188,14 @@ export const videosRouter = createTRPCRouter({
                     categoryId ? eq(videos.categoryId, categoryId) : undefined,
                     cursor
                         ? or (
-                            lt(videos.updatedAT, cursor.updatedAt),
+                            lt(videos.updatedAt, cursor.updatedAt),
                                 and(
-                                    eq(videos.updatedAT, cursor.updatedAt),
+                                    eq(videos.updatedAt, cursor.updatedAt),
                                     lt(videos.id, cursor.id)
                                 )
                             )
                         : undefined,
-                )).orderBy(desc(videos.updatedAT), desc(videos.id))
+                )).orderBy(desc(videos.updatedAt), desc(videos.id))
                 // Add 1 to the limit to check if there is more data
                 .limit(limit + 1)
     
@@ -207,7 +207,7 @@ export const videosRouter = createTRPCRouter({
             const nextCursor = hasMore ? 
                 {
                     id: lastItem.id,
-                    updatedAt: lastItem.updatedAT,
+                    updatedAt: lastItem.updatedAt,
                 }
                 : null;
     
@@ -475,7 +475,7 @@ export const videosRouter = createTRPCRouter({
                     categoryId: input.categoryId,
                     // @ts-ignore
                     visibility: input.visibility, //not sure whats wrong here. 8:51:00 video time stamp
-                    updatedAT: new Date(),
+                    updatedAt: new Date(),
                 })
                 .where(and(
                     eq(videos.id, input.id),

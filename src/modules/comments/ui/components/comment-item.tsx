@@ -88,7 +88,7 @@ export const CommentItem = ({
                                 {comment.user.name}
                             </span>
                             <span className="text-xs text-muted-foreground">
-                                {formatDistanceToNow(comment.createAT, {
+                                {formatDistanceToNow(comment.createdAt, {
                                     addSuffix: true,
                                 })}
                             </span>

@@ -21,7 +21,7 @@ const items = [
     },
     {
         title: "All playlists",
-        url: "/feed/playlists",
+        url: "/playlists",
         icon: ListVideoIcon,
         auth: true,
     },

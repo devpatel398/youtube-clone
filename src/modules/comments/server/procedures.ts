@@ -144,9 +144,9 @@ export const commentsRouter = createTRPCRouter({
                             : isNull(comments.parentId),
                             cursor
                                 ? or(
-                                    lt(comments.updatedAT, cursor.updatedAt),
+                                    lt(comments.updatedAt, cursor.updatedAt),
                                         and(
-                                            eq(comments.updatedAT, cursor.updatedAt),
+                                            eq(comments.updatedAt, cursor.updatedAt),
                                             lt(comments.id, cursor.id)
                                         )
                                     )
@@ -156,7 +156,7 @@ export const commentsRouter = createTRPCRouter({
                     .innerJoin(users, eq(comments.userId, users.id))
                     .leftJoin(viewerReactions, eq(comments.id, viewerReactions.commentId))
                     .leftJoin(replies, eq(comments.id, replies.parentId))
-                    .orderBy(desc(comments.updatedAT), desc(comments.id))
+                    .orderBy(desc(comments.updatedAt), desc(comments.id))
                     // Add 1 to the limit to check if there is more data
                     .limit(limit + 1)
             ])
@@ -170,7 +170,7 @@ export const commentsRouter = createTRPCRouter({
             const nextCursor = hasMore ? 
                 {
                     id: lastItem.id,
-                    updatedAt: lastItem.updatedAT,
+                    updatedAt: lastItem.updatedAt,
                 }
                 : null;
                 
