@@ -276,7 +276,7 @@ const FormSectionSuspense = ({ videoId }: FromSectionProps) => {
                                                             <ImagePlusIcon className="size-4 mr-1" />
                                                             Change
                                                         </DropdownMenuItem>
-                                                        <DropdownMenuItem onClick={() => setThumbnailGenerateModalOpen(true)}>
+                                                        <DropdownMenuItem disabled={true} onClick={() => setThumbnailGenerateModalOpen(true)}>
                                                             <SparklesIcon className="size-4 mr-1" />
                                                             AI-generated
                                                         </DropdownMenuItem>

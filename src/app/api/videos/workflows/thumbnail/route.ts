@@ -1,10 +1,8 @@
 import { db } from "@/db";
 import { videos } from "@/db/schema";
-import { GoogleGenAI } from "@google/genai";
 import { serve } from "@upstash/workflow/nextjs"
 import { eq, and } from "drizzle-orm";
 import { UTApi } from "uploadthing/server";
-import * as fs from "node:fs"
 
 interface InputType {
     userId: string;
