@@ -452,6 +452,17 @@ export const videosRouter = createTRPCRouter({
                 throw new TRPCError({ code: "NOT_FOUND" });
             }
 
+            try {
+                if (!!removedVideo.muxAssetId) await mux.video.assets.delete(removedVideo.muxAssetId);
+            } catch (error) {
+                // Mux asset may have already been deleted
+                console.error("Failed to delete mux asset", error);
+            }
+
+            const utapi = new UTApi();
+            if (!!removedVideo.thumbnailKey) await utapi.deleteFiles([removedVideo.thumbnailKey]);
+            if (!!removedVideo.previewKey) await utapi.deleteFiles([removedVideo.previewKey]);
+
             return removedVideo;
         }),
 
