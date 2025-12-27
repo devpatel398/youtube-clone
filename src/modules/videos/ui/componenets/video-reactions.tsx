@@ -15,7 +15,6 @@ interface VideoReactionsProps {
     viewerReaction: VideoGetOneOutput["viewerReaction"];
 }
 
-// TODO: properly implement video reactonis (currently just mock data to test)
 export const VideoReactions = ({
     videoId,
     likes,

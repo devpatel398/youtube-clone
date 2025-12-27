@@ -1,5 +1,3 @@
-// TODO: Create a Script to seed categories
-
 import { db } from "@/db";
 import { categories } from "@/db/schema";
 

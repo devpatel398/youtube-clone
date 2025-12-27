@@ -4,7 +4,7 @@ import { useAuth, useClerk } from "@clerk/nextjs";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { SubscriptionButton } from "@/modules/subscriptions/ui/components/subscription-button";
-import { useSubscription } from "@/modules/subscriptions/hooks/user-subscriptions";
+import { useSubscription } from "@/modules/subscriptions/hooks/use-subscription";
 import { cn } from "@/lib/utils";
 import { Skeleton } from "@/components/ui/skeleton";
 
