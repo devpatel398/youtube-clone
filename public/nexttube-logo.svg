@@ -1,0 +1,30 @@
+<svg width="256" height="256" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="nexttubeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ff512f"/>
+      <stop offset="100%" stop-color="#f09819"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Main play shape -->
+  <path
+    d="M48 40 C32 40 24 56 24 72 v112 c0 16 8 32 24 32 h120 c16 0 40 -20 40 -40 V80 c0 -20 -24 -40 -40 -40 Z"
+    fill="url(#nexttubeGrad)"
+  />
+
+  <!-- Forward swoosh -->
+  <path
+    d="M170 72 L212 128 L170 184"
+    fill="none"
+    stroke="#ff9f1c"
+    stroke-width="16"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  />
+
+  <!-- Play triangle -->
+  <polygon
+    points="104,80 168,128 104,176"
+    fill="#ffffff"
+  />
+</svg>
