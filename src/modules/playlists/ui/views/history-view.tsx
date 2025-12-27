@@ -3,11 +3,11 @@ import { HistoryVideosSection } from "../sections/history-video-section";
 
 export const HistoryView = () => {
     return (
-        <div className="max-w-screen-md mx-auto mb-10 px-4 pt2.5 flex flex-col gap-y-6">
+        <div className="flex max-w-screen-md mx-auto flex-col gap-y-6 px-4 pt2.5 mb-10">
             <div>
                 <h1 className="text-2xl font-bold">History</h1>
                 <p className="text-xs text-muted-foreground">
-                    Videos you have watched
+                    Go back through videos you have previously watched
                 </p>
             </div>
             <HistoryVideosSection />
