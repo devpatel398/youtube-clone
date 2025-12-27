@@ -8,14 +8,14 @@ const categoryNames = [
     "Gaming",
     "Entertainment",
     "Film and animation",
-    "How-to and style",
+    "Food",
     "Music",
     "News and politics",
-    "People and blogs",
+    "People and vlogs",
     "Pets and animals",
     "Science and technology",
     "Sports",
-    "Travel and events",
+    "Travel and lifestyle",
 ];
 
 async function main(){
