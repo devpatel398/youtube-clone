@@ -389,7 +389,7 @@ const FormSectionSuspense = ({ videoId }: FromSectionProps) => {
                                         </FormLabel>
                                         <Select
                                             onValueChange={field.onChange}
-                                            // @ts-ignore
+                                            // @ts-expect-error @typescript-eslint/ban-ts-comment
                                             defaultValue={field.value ?? undefined}
                                         >
                                             <FormControl>

@@ -470,7 +470,7 @@ export const videosRouter = createTRPCRouter({
                     title: input.title,
                     description: input.description,
                     categoryId: input.categoryId,
-                    // @ts-ignore
+                    // @ts-expect-error @typescript-eslint/ban-ts-comment
                     visibility: input.visibility, //not sure whats wrong here. 8:51:00 video time stamp
                     updatedAt: new Date(),
                 })

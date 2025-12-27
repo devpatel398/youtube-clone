@@ -58,7 +58,7 @@ const VideosSectionSuspense = ({ playlistId }: VideosSectionProps) => {
             utils.playlists.getOne.invalidate({ id: data.playlistId });
             utils.playlists.getVideos.invalidate({ playlistId: data.playlistId });
         },
-        onError: (error) => {
+        onError: () => {
             toast.error("Something went wrong");
         }
     });

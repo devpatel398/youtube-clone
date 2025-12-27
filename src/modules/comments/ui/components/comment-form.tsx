@@ -48,7 +48,7 @@ export const CommentForm = ({
     });
 
     const form = useForm<z.infer<typeof commentInsertSchema>>({
-        // @ts-ignore
+        // @ts-expect-error @typescript-eslint/ban-ts-comment
         resolver: zodResolver(commentInsertSchema.omit({ userId: true })), // works but gives red underline, added // @ts-ignore -> Time 3:01:20 in part 2
         defaultValues: {
             parentId: parentId,
@@ -70,7 +70,7 @@ export const CommentForm = ({
         <Form {...form}>
             <form
                 className="flex gap-4 group"
-                // @ts-ignore
+                // @ts-expect-error @typescript-eslint/ban-ts-comment
                 onSubmit={form.handleSubmit(handleSubmit)}
             >
                 <UserAvatar
@@ -81,7 +81,7 @@ export const CommentForm = ({
                 <div className="flex-1">
                     <FormField
                         name="value"
-                        // @ts-ignore
+                        // @ts-expect-error @typescript-eslint/ban-ts-comment
                         control={form.control}
                         render={({ field }) => (
                             <FormItem>

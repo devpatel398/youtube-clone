@@ -1,7 +1,6 @@
 "use client";
 
 import { DEFAULT_LIMIT } from "@/constants";
-import { useIsMobile } from "@/hooks/use-mobile";
 import { trpc } from "@/trpc/client";
 import { VideoRowCard, VideoRowCardSkeleton } from "@/modules/videos/ui/componenets/video-row-card";
 import { VideoGridCard, VideoGridCardSkeleton } from "@/modules/videos/ui/componenets/video-grid-card";

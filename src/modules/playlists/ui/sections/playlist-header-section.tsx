@@ -48,7 +48,7 @@ const PlaylistHeaderSectionSuspense = ({
             utils.playlists.getMany.invalidate();
             router.push("/playlists");
         },
-        onError: (error) => {
+        onError: () => {
             toast.error("Something went wrong");
         }
     });
