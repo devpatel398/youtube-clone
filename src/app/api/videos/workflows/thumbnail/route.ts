@@ -51,8 +51,6 @@ export const { POST } = serve(
     });
 
     const tempThumbnailUrl = body.url;
-    console.log(body)
-    console.log(tempThumbnailUrl);
 
     /* const { body } = await context.call<{ data: { url: string }[] }>("generate-thumbnail", {
         url: `https://api.cloudflare.com/client/v4/accounts/${process.env.WORKERSAI_ACCOUNT_ID}/ai/run/@cf/stabilityai/stable-diffusion-xl-base-1.0`,
