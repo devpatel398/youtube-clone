@@ -1,36 +1,48 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# ViewTube
 
-## Getting Started
+A Youtube-inspired video-sharing website.
 
-First, run the development server:
+> This is mock website for practice purposes. There is a max limit of 10 videos for the Mux api free plan. (If there are 10 videos you MIGHT not be able to upload your own to test)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+![alt text](https://github.com/devpatel398/youtube-clone/raw/master/public/viewtube-project.png "Logo Title Text 1")
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Tech
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- NextJS
+- React 19
+- tRPC v11
+- Drizzle
+- Neon DB
+- Mux
+- Clerk Auth
+- Svix Webhook
+- Upstash Redis + Ratelimit
+- Upstash Workflow
+- Google Gemini 2.0 API
+- Cloudflare Workers AI
+- Tailwind V4
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+--- Local:
 
-## Learn More
+- Ngrok: Local development tunnel for Clerk webhooks
 
-To learn more about Next.js, take a look at the following resources:
+### Features
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- [x] User-uploaded videos (With managed details, categories, tags, etc)
+- [x] Video processing service (Mux)
+- [x] Video playlist creation and management
+- [x] Channel subscriptions
+- [x] Video comments and likes system
+- [x] AI-Generation tools for the user to use (Video title, description, thumbnail)
+- [ ] Real-time status updates for long-running tasks using SSE
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+--- Tech
 
-## Deploy on Vercel
+- [ ] Use of Redis KV service as event channel for communication between Workflows and tRPC subscription endpoints. This allows real-time status tracking of the state of workflows for the client.
+- [x] Using NextJS Parallel Routes and Route Intercepting for the creation of Router-compliant modals
+- [x] Clerk Auth synchronization to local own db though Webhooks (Svix verification)
+- [x] Authenticated server component prefetching through tRPC v11's support for server-side calls
+- [x] Vercel KV (Upstash) Redis service for request rate limiting
+- [x] Implementation of Background Jobs using Upstash Workflow for dealing with long-running tasks, such as AI-generation requests
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
