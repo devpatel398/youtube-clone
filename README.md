@@ -4,7 +4,7 @@ A Youtube-inspired video-sharing website.
 
 > This is mock website for practice purposes. There is a max limit of 10 videos for the Mux api free plan. (If there are 10 videos you MIGHT not be able to upload your own to test)
 
-![alt text](https://github.com/devpatel398/youtube-clone/raw/master/public/viewtube.png "Logo Title Text 1")
+![alt text](https://github.com/devpatel398/youtube-clone/raw/master/public/viewtube-project.png "Logo Title Text 1")
 
 ### Tech
 
