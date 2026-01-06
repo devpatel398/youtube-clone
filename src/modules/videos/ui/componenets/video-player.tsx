@@ -34,6 +34,11 @@ export const VideoPlayer = ({
             className="size-full object-contain"
             accentColor="#FF2056"
             onPlay={onPlay}
+            //added this styling to fix thumbnail filling video issue, Mux poster has its own styling
+            style={{
+                '--media-object-fit': 'cover',
+                '--poster-object-fit': 'cover'
+            } as React.CSSProperties}
         />
     );
 }

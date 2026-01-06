@@ -19,8 +19,18 @@ export const videoViewsRouter = createTRPCRouter({
                     eq(videoViews.userId, userId),
                 ))
 
+            //if existingVideoView is true, that means the user has watched this video before. so we just update the updatedAT time
             if (existingVideoView) {
-                return existingVideoView;
+                const [updatedVideoView] = await db
+                    .update(videoViews)
+                    .set({ updatedAt: new Date() })
+                    .where(and(
+                            eq(videoViews.videoId, videoId),
+                            eq(videoViews.userId, userId),
+                    ))
+                    .returning();
+    
+                return updatedVideoView;
             }
 
             const [createdVideoView] = await db

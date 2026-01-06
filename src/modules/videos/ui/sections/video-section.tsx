@@ -44,6 +44,7 @@ const VideoSectionSuspense = ({ videoId }: VideoSectionProps) => {
     });
 
     const handlePlay = () => {
+        //if user is not logged in, it doesn't add to the videos view count. might change later
         if (!isSignedIn) {
             return;
         }
